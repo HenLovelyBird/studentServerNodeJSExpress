@@ -1,8 +1,1 @@
-[{"_id":"1","family name":"Ridger","first name":"Gloria","nick name":"Glo",
-    "year enrolled":"2018","major":"statistics","minor":"geography",
-    "expected grad date":2020,"gpa":3.7},
-    {},
-    {"_id":3,"email":"","twitterhandle":""},
-    {},
-    {"_id":5,"email":"rodrigo@plainsight.ru","twitterhandle":"n/a"},
-    {"_id":6,"email":"rodrigo@plainsight.ru","twitterhandle":"n/a"}]
+[{"Name":"Glo Rodgers","Description":"statistics in geography","Creation":"22.11.2020","ID":1,"RepoURL":"github","LiveURL":"http://localhost:3000","StudentID":1},{"Name":"Penny Pinkerton","Description":"a manifesto on P2P economies","Creation":"22.11.2020","ID":2,"RepoURL":"github","LiveURL":"http://localhost:3000","StudentID":2},{"_id":3,"email":"","twitterhandle":""},{},{"_id":5,"email":"rodrigo@plainsight.ru","twitterhandle":"n/a"},{"_id":6,"email":"rodrigo@plainsight.ru","twitterhandle":"n/a"},{"Name":"Penny Pinkerton","Description":"a manifesto on P2P economies","Creation":"Wed Dec 11 2019 13:50:29 GMT+0100 (Central European Standard Time)","ID":7,"RepoURL":"","LiveURL":"","StudentID":7}]

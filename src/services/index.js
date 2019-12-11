@@ -16,11 +16,20 @@ router.get('/', (req, res) => {
 });
 //READ http://localhost:3000/students/ to GET all the users
 
+//req for student by query of name
+router.get('/', (req, res)=> {
+    const studentsArray = readFile(filePath);
+    const filteredStudents = studentsArray.filter(student => student.hasOwnProperty("name") && 
+    name.toLowerCase() === req.query.name.toLowerCase())
+    res.send(filteredStudents);
+}); //READ http://localhost:3000/students?name=penny&ID=2 to GET a prop of a particular student
+
+
 // req for particular student id number
 router.get('/:id', (req, res)=> {
     const studentsArray = readFile(filePath);
     const findStudent = studentsArray.find(
-        student => student._id === Number.parseInt(req.params.id)
+        student => student.ID === Number.parseInt(req.params.id)
     );
     console.log(req.params.id);
     if (findStudent){
@@ -34,22 +43,19 @@ router.post('/', (req, res) => {
     const studentsArray = readFile(filePath);
     const newStudent = {
         ...req.body,
-        _id: studentsArray.length + 1,
-        familyname: "Pinkerton",
-        firstname:"Penny",
-        nickname:"Pipi",
-        yearenrolled:"2018",
-        major:"home economoics",
-        minor:"economics",
-        expectedgraddate:2020,
-        gpa:3.7,
-        email: "pipi@p2peconomies.it",
-        twitterhandle: "pi2pieconomies"
+        Name: "Penny Pinkerton",
+        Description:"a manifesto on P2P economies",
+        Creation: Date(),
+        ID: studentsArray.length + 1,
+        RepoURL:"",
+        LiveURL:"",
+        StudentID:studentsArray.length+1
     };
     studentsArray.push(newStudent);
     fs.writeFileSync(filePath, JSON.stringify(studentsArray));
     res.status(201).send(`${newStudent._id}`);
 });// CREATE http://localhost:3000/students/ to POST a single user
+
 
 router.put('/:id', (req, res)=> {
     const modifyStudent = req.body;
