@@ -3,7 +3,7 @@ const studentsRouter = require("./src/services/index");
 
 const server = express() //create http server with express
 
-const port = 3000; //on port number-can-be-changed
+const port = 3001; //on port number-can-be-changed
 
 server.use(express.json()); //tell express to parse the request body
 

@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
     };
     studentsArray.push(newStudent);
     fs.writeFileSync(filePath, JSON.stringify(studentsArray));
-    res.status(201).send(`${newStudent._id}`);
+    res.status(201).send(`${newStudent.ID}`);
 });// CREATE http://localhost:3000/students/ to POST a single user
 
 
@@ -65,6 +65,11 @@ router.put('/:id', (req, res)=> {
     res.send(modifyStudent);
 });// PUT http://localhost:3000/students/ to UPDATE a single user
 
-// router.delete();
+router.delete('/:id', (req, res) => {
+    const studentsArray = readFile(filePath);
+    const keepStudents = studentsArray.filter(student => student.ID !== req.params.id);
+    fs.writeFileSync(filePath, JSON.stringify(keepStudents));
+    res.status(204);
+}); // DELETE http://localhost:3000/students/ to DELETE a single user
 
 module.exports = router;
